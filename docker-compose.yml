@@ -1,0 +1,24 @@
+services:
+  game:
+    image: spacedegen
+    build: .
+    ports:
+      - "127.0.0.1:8030:80"
+    environment:
+      - REDIS_URL=${REDIS_URL}
+      - ETH_PRIVATE_KEY=${ETH_PRIVATE_KEY}
+      - HUBBLE_URL=${HUBBLE_URL}
+      - BASE_URL=${BASE_URL}
+      - TREASURES=${TREASURES}
+    depends_on:
+      - redis
+  redis:
+    image: "redis/redis-stack:latest"
+    ports:
+      - "127.0.0.1:6379:6379"
+      - "127.0.0.1:8011:8001"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:

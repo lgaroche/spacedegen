@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Space Degen</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Space Degen">
+        <meta property="og:image" content="{{ animation }}">
+        <meta property="fc:frame" content="vNext">
+        <meta property="fc:frame:image" content="{{ animation }}">
+        <meta property="fc:frame:post_url" content="https://space.bytes32.net{{ url }}">
+        {% for button in buttons %}
+            <meta property="fc:frame:button:{{ loop.index }}" content="{{ button }}">
+        {% endfor %}
+        {% if link %}
+            <meta property="fc:frame:button:{{ buttons | length() + 1 }}" content="{{ link | first}}">
+            <meta property="fc:frame:button:{{ buttons | length() + 1 }}:action" content="link">
+            <meta property="fc:frame:button:{{ buttons | length() + 1 }}:target" content="{{ link | last}}">
+        {% endif %}
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <div class="logo">
+            <img src="/static/header.png" alt="Space Degen" height="300">
+        </div>
+        <table>
+            <thead>
+                <th>Player</th>
+                <th>Degen holes found</th>
+                <th>Lives left</th>
+                <th>Total moves</th>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                    <tr>
+                        <td>{{ player.name }}</td>
+                        <td>{{ player.wins }}</td>
+                        <td>{{ player.lives }}</td>
+                        <td>{{ player.moves }}</td>
+                    </tr>
+                {% endfor %}
+        </table>
+    </body>
+</html>
