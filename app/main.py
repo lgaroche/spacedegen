@@ -159,5 +159,5 @@ def pay_reward(fid: int):
     })
     r.hset(f"tx:{fid}:{int(datetime.now().timestamp())}", mapping=tx)
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=pk)
-    # w3.eth.send_raw_transaction(signed_tx.rawTransaction) 
+    w3.eth.send_raw_transaction(signed_tx.rawTransaction) 
     return {"tx": signed_tx.rawTransaction.hex()} 
