@@ -1,7 +1,9 @@
 # Space Degen V1
 
-A simple game. Steer right or left to turn your spaceship. Find treasures hidden at special coordinates. 
-Note: the hats are decoration only, don't get too tempted. 
+![Space Degen V1](https://space.bytes32.net/static/intro.gif)
+
+A simple game for Farcaster. Steer right or left to turn your spaceship. Find treasures hidden at special coordinates. 
+> Note: the hats are decoration only, don't get too tempted. 
 
 ## Docker compose installation
 
